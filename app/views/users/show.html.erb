@@ -1,0 +1,31 @@
+<div class="room">
+
+  <h1>
+    <p style="font-size:25px; display: inline">
+      <strong>
+        <%= t '.title', user_name: @user.full_name %>
+      </strong>
+    </p>
+  </h1>
+  <ul>
+    <li>
+      <p style="font-size:20px; display: inline">
+        <%= t '.location', location: @user.location %>
+      </p>
+    </li>
+    <li>
+      <p style="font-size:20px; display: inline">
+        <%= t '.bio', bio: @user.bio %>
+      </p>
+    </li>
+  </ul>
+
+  <div align="right">
+  <p style="font-size:22px; display: inline">
+      <p id="buttons"><%= link_to t('.edit'), edit_user_path(@user) %></p>
+      &nbsp;&nbsp;
+      <p id="buttons"><%= link_to t('.home'), root_path %></p>
+    </p>
+  </div>
+</div>
+

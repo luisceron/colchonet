@@ -1,0 +1,49 @@
+<div class="room">
+  <p>
+    <p style="font-size:22px; display: inline;font-style: oblique">
+      <strong><%= t('rooms.show.title') %></strong>
+    </p>
+    <p style="font-size:18px; display: inline">
+      <%= @room.title %>
+    </p>
+  </p>
+
+  <p>
+    <p style="font-size:22px; display: inline;font-style: oblique;">
+      <strong><%= t('rooms.show.location') %></strong>
+    </p>
+    <p style="font-size:18px; display: inline">
+      <%= @room.location %>
+    </p>
+  </p>
+
+  <p>
+    <p style="font-size:22px; display: inline;font-style: oblique;">
+      <strong><%= t('rooms.show.description') %></strong>
+    </p>
+    <p style="font-size:18px; display: inline">
+      <%= @room.description %>
+    </p>
+  </p>
+
+  <div align="right">
+    <p style="font-size:20px; display: inline;
+        font-style: oblique;">
+      <% if belongs_to_user(@room) %>
+        <p id="buttons"><%= link_to t('links.edit'), edit_room_path(@room) %></p>
+        &nbsp;&nbsp;
+        <p id="buttons">
+          <%= link_to t('links.remove'), room_path(@room),
+          method: :delete, data:{confirm: t('dialogs.destroy')}%>
+        </p>
+      <% end %>
+      &nbsp;&nbsp;
+      <!--<p id="buttons">
+        <=%= link_to t('links.back'), root_path %>
+      </p>-->
+      <a id="buttons" onclick='window.history.back();'>
+        <%= t('links.back') %>
+      </a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<h1 style="font-size:25px; display: inline">
+  <%= t('layout.new_rooms')%>
+</h1>
+
+<ul>
+  <% @rooms.each do |room| %>
+    <div class="room">
+      <li><p style="font-size:22px; display: inline">
+        <%= link_to room.complete_name, room %>
+      </p></li>
+    </div>
+  <% end %>
+</ul>
+

@@ -1,0 +1,31 @@
+<% if @room.errors.any? %>
+  <div id="error_explanation">
+    <%= t 'general.form_error' %>
+  </div>
+<% end %>
+
+<%= form_for(@room) do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= error_tag @room, :title %>
+  </div>
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <%= error_tag @room, :location %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= error_tag @room, :description %>
+  </div>
+  <div class="actions" style="display:inline">
+    <%= f.submit %>
+  </div>
+  &nbsp;&nbsp;
+  <p id="buttons">
+    <%= link_to t('links.back'), root_path %>
+  </p>
+
+<% end %>

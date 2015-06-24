@@ -1,0 +1,30 @@
+<% provide(:title, "#{room.title} - #{room.user.full_name} #{room.location} ") %>
+
+<article class="room">
+  <h2>
+    <b>
+      <%= link_to highlight(room.title, @search_query), room.route %>
+    </b>
+  </h2>
+
+  <%= render partial: "rooms/review",
+    locals: {room: room} %>
+
+  <span class="created">
+    <%= t '.owner',
+        owner: room.user.full_name,
+        when: l(room.created_at, format: :short)
+    %>
+  </span>
+
+  <p>
+    <span class="location">
+      <%= link_to highlight(room.location, @search_query),  "https://maps.google.com/?q=#{room.location}",
+        target: :blank %>
+    </span>
+  </p>
+  <p>
+    <%= highlight(room.description || '', @search_query) %>
+  </p>
+
+</article>
